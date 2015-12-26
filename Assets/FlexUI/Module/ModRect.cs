@@ -1,3 +1,5 @@
+#pragma warning disable 0219
+
 using UnityEngine;
 
 namespace FlexUI

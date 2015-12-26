@@ -97,7 +97,7 @@ namespace CSLE
 
 		public void RegType<T>(string setkeyword = null)
 		{
-			RegType(new RegHelper_Type(typeof(T), setkeyword));
+			RegType(RegHelper_Type.MakeType(typeof(T), setkeyword));
 		}
 
         public ICLS_Type GetType(CLType type)

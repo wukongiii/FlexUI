@@ -1,3 +1,4 @@
+#pragma warning disable 0219
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace FlexUI
             }
             Handler handlers = eventHandlers [eventName];
             handlers = null;
-
+			eventHandlers.Remove (eventName);
         }
 
         public void DispatchEvent(string eventName, object sender = null, object data = null)

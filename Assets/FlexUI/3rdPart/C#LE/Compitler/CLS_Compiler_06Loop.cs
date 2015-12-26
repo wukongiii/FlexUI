@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable 0219
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace CSLE
