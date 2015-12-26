@@ -1,6 +1,6 @@
 using System;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)] 
     public class InterestedProperty:Attribute

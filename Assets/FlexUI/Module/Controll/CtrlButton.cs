@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class CtrlButton : ModInteractable 
     {
@@ -30,6 +30,8 @@ namespace FlexUI
                     if (buttonGO != null)
                     {
 						FlexUIUtil.AddChild(element.GameObject, buttonGO);
+						RectTransform rect = buttonGO.GetComponent<RectTransform>();
+						FlexUIUtil.ExpandRect(rect);
                     }
                 } else
                 {

@@ -1,6 +1,6 @@
 
 using System;
-namespace FlexUI
+namespace catwins.flexui
 {
     public class TagImage:Element
     {

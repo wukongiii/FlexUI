@@ -1,6 +1,6 @@
 
 
-namespace FlexUI
+namespace catwins.flexui
 {
 
     public class TagButton:Element

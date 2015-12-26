@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using CSLE;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     class ScriptLogger : CSLE.ICLS_Logger
     {

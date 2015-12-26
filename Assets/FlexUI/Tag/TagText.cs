@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [DebuggerDisplay("TagText")]
     public class TagText:Element

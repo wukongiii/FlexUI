@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
 
     public class ModScript:BaseMod

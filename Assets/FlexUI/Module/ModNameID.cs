@@ -1,5 +1,5 @@
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(NAME, ID)]
     public class ModNameID:BaseMod

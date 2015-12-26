@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Xml;
 using System.Collections.Generic;
 
-namespace FlexUI
+namespace catwins.flexui
 {
 
     public class Element:Object

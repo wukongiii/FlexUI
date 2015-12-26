@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class TagScroll:Element
     {

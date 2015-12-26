@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
 
     public class PrefabLoader

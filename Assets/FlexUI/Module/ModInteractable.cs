@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(INTERACTABLE)]
     public class ModInteractable:BaseMod

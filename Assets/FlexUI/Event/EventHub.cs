@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class EventHub
     {

@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(POSITION, POS_X, POS_Y, POS_Z, 
                         WIDTH, HEIGHT, 

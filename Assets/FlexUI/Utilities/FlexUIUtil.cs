@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class FlexUIUtil
     {
@@ -73,15 +73,16 @@ namespace FlexUI
 
         static Dictionary<string, Color> colorNameTable = new Dictionary<string, Color>()
         {
+			{"red", Color.red},
+			{"green", Color.green},
+			{"blue", Color.blue},
             {"black", Color.black},
-            {"blue", Color.blue},
+			{"white", Color.white},
             {"clear", Color.clear},
             {"cyan", Color.cyan},
             {"gray", Color.gray},
             {"grey", Color.grey},
             {"magenta", Color.magenta},
-            {"red", Color.red},
-            {"white", Color.white},
             {"yellow", Color.yellow},
         };
 
@@ -280,6 +281,24 @@ namespace FlexUI
 			
 		}
 
+		public static void ExpandRect(GameObject go)
+		{
+			RectTransform trans = go.GetComponent<RectTransform>();
+			if (trans == null)
+			{
+				return;
+			}
+			ExpandRect(trans);
+		}
+		
+		public static void ExpandRect(RectTransform trans)
+		{
+			trans.anchorMin = Vector3.zero;
+			trans.anchorMax = Vector3.one;
+			
+			trans.offsetMin = Vector2.zero;
+			trans.offsetMax = Vector2.zero;
+		}
     }
 
 }

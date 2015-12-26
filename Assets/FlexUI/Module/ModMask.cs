@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(MASK)]
     public class ModMask:BaseMod

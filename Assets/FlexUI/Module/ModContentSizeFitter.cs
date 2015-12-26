@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(AUTOSIZE, HFITMODE, VFITMODE)]
     public class ModContentSizeFitter:BaseMod

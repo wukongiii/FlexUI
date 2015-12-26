@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace FlexUI
+namespace catwins.flexui
 {
 	public class SpriteSheet
 	{

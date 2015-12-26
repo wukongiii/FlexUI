@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     // sprite@res://a/b/c
     public class URI

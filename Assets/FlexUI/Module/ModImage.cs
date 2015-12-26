@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-using URI = FlexUI.URI;
+using URI = catwins.flexui.URI;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(BACKGROUND, IMAGE)]
     public class ModImage:BaseMod

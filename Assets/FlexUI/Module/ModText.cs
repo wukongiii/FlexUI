@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using URI = FlexUI.URI;
+using URI = catwins.flexui.URI;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class ModText:BaseMod
     {

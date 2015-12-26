@@ -1,0 +1,10 @@
+<root background="sprite@res://border1" color="ffffff" width="800" height="600">
+	<text text="Welcome!" prefferedHeight= "50" color="ff0000" size="60" hOverflow="true" vOverflow="true" textAlign="middlecenter" align="uppercenter" />
+	<text text="Hi there!  This FlexUI!" width="400" color="000000" size="30" vOverflow="true" />
+    <text text="
+    This panel shows how to make a background, set width and height of the container,
+    and how to display text, and set their color, size, textalignment.
+    Generally speaking, FlexUI is a translator of XML to Unity UGUI.
+    " color="green" size="30"  width="100%" height="30" textalign="lowercenter" vOverflow="true" align="lowercenter"/>
+	
+</root>

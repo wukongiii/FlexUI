@@ -7,7 +7,7 @@ using NanoXML;
 
 using UnityEngine;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class XMLDocParser:IDocParser
     {

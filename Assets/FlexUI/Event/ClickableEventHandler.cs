@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class ClickableEventHandler:BaseInteractableEventHandler, IPointerClickHandler
     {

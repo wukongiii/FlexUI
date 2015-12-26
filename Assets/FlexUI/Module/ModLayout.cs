@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(LAYOUT)]
     public class ModLayout:BaseMod

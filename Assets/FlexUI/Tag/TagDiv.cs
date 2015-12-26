@@ -1,7 +1,7 @@
 
 
 using System;
-namespace FlexUI
+namespace catwins.flexui
 {
     public class TagDiv:Element
     {

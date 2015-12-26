@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     [InterestedProperty(TOGGLE_GROUP_ID)]
     public class ModToggleGroup : BaseMod 

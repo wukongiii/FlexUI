@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace FlexUI
+namespace catwins.flexui
 {
     public class CtrlToggle : ModInteractable 
     {
@@ -37,6 +37,9 @@ namespace FlexUI
 						FlexUIUtil.AddChild(element.GameObject, toggleGO);
                         Toggle = toggleGO.GetComponentInChildren<Toggle>();
                         text = toggleGO.GetComponentInChildren<Text>();
+
+						RectTransform rect = toggleGO.GetComponent<RectTransform>();
+						FlexUIUtil.ExpandRect(rect);
                     }
 
                 }
