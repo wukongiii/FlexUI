@@ -1,0 +1,10 @@
+
+*.csproj
+
+Library
+
+*.sln
+
+FlexUI.userprefs
+
+ProjectSettings
