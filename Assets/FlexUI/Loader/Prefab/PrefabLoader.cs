@@ -9,12 +9,12 @@ namespace FlexUI
 
         static public GameObject Load(string path)
         {
-            var rawRes = Resources.Load(path);
+            var rawRes = Resources.Load<GameObject>(path);
             if (rawRes == null)
             {
                 return null;
             }
-            return (GameObject)GameObject.Instantiate(rawRes);
+            return GameObject.Instantiate<GameObject>(rawRes);
         }
     }
 
