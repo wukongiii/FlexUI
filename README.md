@@ -1,1 +1,1 @@
-FlexUI is a a simple but useful XHTML->Unity UGUI converting tool.
+FlexUI is a XHTML->Unity UGUI converting tool.
