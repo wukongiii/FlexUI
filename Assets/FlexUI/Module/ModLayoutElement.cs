@@ -54,13 +54,35 @@ namespace catwins.flexui
 
             if (element.HasDirtyProperty(FLEXIBLE_WIDTH))
             {
-                float flexibleWidth = element.GetFloat(FLEXIBLE_WIDTH);
+				float flexibleWidth;
+
+				float widthPercentage;
+				bool isPercent = FlexUIUtil.TryGetPercentage(element.GetString(FLEXIBLE_WIDTH), out widthPercentage);
+				if (isPercent)
+				{
+					flexibleWidth = widthPercentage / 100.0f;
+				} else 
+				{
+					flexibleWidth = element.GetFloat(FLEXIBLE_WIDTH);
+				}
+
                 layoutElement.flexibleWidth = flexibleWidth;
             }
 
             if (element.HasDirtyProperty(FLEXIBLE_HEIGHT))
             {
-                float flexibleHeight = element.GetFloat(FLEXIBLE_HEIGHT);
+				float flexibleHeight;
+
+				float heightPercentage;
+				bool isPercent = FlexUIUtil.TryGetPercentage(element.GetString(FLEXIBLE_HEIGHT), out heightPercentage);
+				if (isPercent)
+				{
+					flexibleHeight = heightPercentage / 100.0f;
+				} else 
+				{
+					flexibleHeight = element.GetFloat(FLEXIBLE_HEIGHT);
+				}
+
                 layoutElement.flexibleHeight = flexibleHeight;
             }
 

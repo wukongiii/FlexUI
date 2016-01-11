@@ -92,97 +92,16 @@ namespace catwins.flexui
             }
             #endregion
 
-            //anchor
-            Vector2 anchorMin = rect.anchorMin;
-            Vector2 anchorMax = rect.anchorMax;
-
-            #region anchor
-
-            if (element.HasDirtyProperty(ANCHOR))
-            {
-                TextAnchor anchor = TextAnchor.MiddleLeft;
-                if (CommonProperty.AlignTable.ContainsKey(element.GetString(ANCHOR)))
-                {
-                    anchor = CommonProperty.AlignTable[element.GetString(ANCHOR)];
-                }
-
-                switch (anchor)
-                {
-                    case TextAnchor.UpperLeft:
-                        anchorMin.x = 0f; anchorMin.y = 1f;
-                        anchorMax.x = 0f; anchorMax.y = 1f;
-                        break;
-
-                    case TextAnchor.UpperCenter:
-                        anchorMin.x = 0.5f; anchorMin.y = 1f;
-                        anchorMax.x = 0.5f; anchorMax.y = 1f;
-                        break;
-
-                    case TextAnchor.UpperRight:
-                        anchorMin.x = 1f; anchorMin.y = 1f;
-                        anchorMax.x = 1f; anchorMax.y = 1f;
-                        break;
-
-                    case TextAnchor.MiddleLeft:
-                        anchorMin.x = 0f; anchorMin.y = 0.5f;
-                        anchorMax.x = 0f; anchorMax.y = 0.5f;
-                        break;
-
-                    case TextAnchor.MiddleCenter:
-                        anchorMin.x = 0.5f; anchorMin.y = 0.5f;
-                        anchorMax.x = 0.5f; anchorMax.y = 0.5f;
-                        break;
-
-                    case TextAnchor.MiddleRight:
-                        anchorMin.x = 1f; anchorMin.y = 1f;
-                        anchorMax.x = 1f; anchorMax.y = 1f;
-                        break;
-
-                    case TextAnchor.LowerLeft:
-                        anchorMin.x = 0f; anchorMin.y = 0f;
-                        anchorMax.x = 0f; anchorMax.y = 0f;
-                        break;
-
-                    case TextAnchor.LowerCenter:
-                        anchorMin.x = 0.5f; anchorMin.y = 0f;
-                        anchorMax.x = 0.5f; anchorMax.y = 0f;
-                        break;
-
-                    case TextAnchor.LowerRight:
-                        anchorMin.x = 1f; anchorMin.y = 0f;
-                        anchorMax.x = 1f; anchorMax.y = 0f;
-                        break;
-                }
-            }
-            //anchor
-            if (element.HasDirtyProperty(ANCHOR_MIN_X))
-            {
-                anchorMin.x = element.GetFloat(ANCHOR_MIN_X);
-            }
-            if (element.HasDirtyProperty(ANCHOR_MIN_Y))
-            {
-                anchorMin.y = element.GetFloat(ANCHOR_MIN_Y);
-            }
-            rect.anchorMin = anchorMin;
-            
-            if (element.HasDirtyProperty(ANCHOR_MAX_X))
-            {
-                anchorMax.x = element.GetFloat(ANCHOR_MAX_X);
-            }
-            if (element.HasDirtyProperty(ANCHOR_MAX_Y))
-            {
-                anchorMax.y = element.GetFloat(ANCHOR_MAX_Y);
-            }
-            rect.anchorMax = anchorMax;
-
-            #endregion
-
             #region width height
             //width height
             //Say a value 80% on axis X, how to allocate it to each side?
             //using 0.5f as the center, the smaller one is 0.5 - (0.8/2) = 0.1, the bigger one is 0.5 + (0.8/2) = 0.9;
             float parentAnchorCenterX = 0.5f;
             float parentAnchorCenterY = 0.5f;
+
+			//anchor
+			Vector2 anchorMin = rect.anchorMin;
+			Vector2 anchorMax = rect.anchorMax;
 
             Vector2 offsetMin = new Vector2();
             Vector2 offsetMax = new Vector2();
@@ -194,8 +113,8 @@ namespace catwins.flexui
                 if (isPercent)
                 {
                     float halfPercent = widthPercentage/2.0f;
-                    anchorMin.x = parentAnchorCenterX - halfPercent;
-                    anchorMax.x = parentAnchorCenterX + halfPercent;
+					anchorMin.x = rect.anchorMin.x - halfPercent;
+					anchorMax.x = rect.anchorMax.x + halfPercent;
                     //apply anchors
                     rect.anchorMin = anchorMin;
                     rect.anchorMax = anchorMax;
@@ -221,8 +140,8 @@ namespace catwins.flexui
                 if (isPercent)
                 {
                     float halfPercent = heightPercentage/2.0f;
-                    anchorMin.y = parentAnchorCenterX - halfPercent;
-                    anchorMax.y = parentAnchorCenterX + halfPercent;
+					anchorMin.y = rect.anchorMin.y - halfPercent;
+					anchorMax.y = rect.anchorMax.y + halfPercent;
                     //apply anchors
                     rect.anchorMin = anchorMin;
                     rect.anchorMax = anchorMax;
@@ -243,6 +162,92 @@ namespace catwins.flexui
             }
             
             #endregion
+
+			//anchor
+			anchorMin = rect.anchorMin;
+			anchorMax = rect.anchorMax;
+
+			#region anchor
+
+			if (element.HasDirtyProperty(ANCHOR))
+			{
+				TextAnchor anchor = TextAnchor.MiddleLeft;
+				if (CommonProperty.AlignTable.ContainsKey(element.GetString(ANCHOR)))
+				{
+					anchor = CommonProperty.AlignTable[element.GetString(ANCHOR)];
+				}
+				Vector2 rectOffset = anchorMax - anchorMin;
+
+				switch (anchor)
+				{
+				case TextAnchor.UpperLeft:
+					anchorMin.x = 0f; anchorMax.x = rectOffset.x;//X Left
+					anchorMin.y = 1f - rectOffset.y; anchorMax.y = 1f;// Y upper
+					break;
+
+				case TextAnchor.UpperCenter:
+					anchorMin.x = 0.5f - rectOffset.x / 2f; anchorMax.x = 0.5f + rectOffset.x / 2f;// X center
+					anchorMin.y = 1f - rectOffset.y; anchorMax.y = 1f;// Y upper
+					break;
+
+				case TextAnchor.UpperRight:
+					anchorMin.x = 1f - rectOffset.x; anchorMax.x = 1f ;//X right
+					anchorMin.y = 1f - rectOffset.y; anchorMax.y = 1f;// Y upper
+					break;
+
+				case TextAnchor.MiddleLeft:
+					anchorMin.x = 0f; anchorMax.x = rectOffset.x;// X left
+					anchorMin.y = 0.5f - rectOffset.y / 2f; anchorMax.y = 0.5f + rectOffset.y / 2f;// Y middle
+					break;
+
+				case TextAnchor.MiddleCenter:
+					anchorMin.x = 0.5f - rectOffset.x / 2f; anchorMax.x = 0.5f + rectOffset.x / 2f;//X center
+					anchorMin.y = 0.5f - rectOffset.y / 2f; anchorMax.y = 0.5f + rectOffset.y / 2f;//Y middle
+					break;
+
+				case TextAnchor.MiddleRight:
+					anchorMin.x = 1f - rectOffset.x; anchorMax.x = 1f ;//X right
+					anchorMin.y = 0.5f - rectOffset.y / 2f; anchorMax.y = 0.5f + rectOffset.y / 2f;// Y middle
+					break;
+
+				case TextAnchor.LowerLeft:
+					anchorMin.x = 0f; anchorMax.x = rectOffset.x;// X left
+					anchorMin.y = 0f; anchorMax.y = rectOffset.y;//Y lower
+					break;
+
+				case TextAnchor.LowerCenter:
+					anchorMin.x = 0.5f - rectOffset.x / 2f; anchorMax.x = 0.5f + rectOffset.x / 2f;//X center
+					anchorMin.y = 0f; anchorMax.y = rectOffset.y;//Y lower
+					break;
+
+				case TextAnchor.LowerRight:
+					anchorMin.x = 1f - rectOffset.x; anchorMax.x = 1f ;//X right
+					anchorMin.y = 0f; anchorMax.y = rectOffset.y;//Y lower
+					break;
+				}
+			}
+			//anchor
+			if (element.HasDirtyProperty(ANCHOR_MIN_X))
+			{
+				anchorMin.x = element.GetFloat(ANCHOR_MIN_X);
+			}
+			if (element.HasDirtyProperty(ANCHOR_MIN_Y))
+			{
+				anchorMin.y = element.GetFloat(ANCHOR_MIN_Y);
+			}
+			rect.anchorMin = anchorMin;
+
+			if (element.HasDirtyProperty(ANCHOR_MAX_X))
+			{
+				anchorMax.x = element.GetFloat(ANCHOR_MAX_X);
+			}
+			if (element.HasDirtyProperty(ANCHOR_MAX_Y))
+			{
+				anchorMax.y = element.GetFloat(ANCHOR_MAX_Y);
+			}
+			rect.anchorMax = anchorMax;
+
+			#endregion
 
             #region pivot
             //pivot

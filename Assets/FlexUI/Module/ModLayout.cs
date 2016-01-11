@@ -26,16 +26,6 @@ namespace catwins.flexui
 		public const string PADDINGLEFT = "paddingleft";
 		public const string PADDINGRIGHT = "paddingright";
 
-        public const string FLEXABLE_HEIGHT = "flexableheight";
-        public const string FLEXABLE_WIDTH = "flexablewidth";
-
-        public const string MIN_HEIGHT = "minheight";
-        public const string MIN_WIDTH = "minwidth";
-
-        public const string PREFFERED_HEIGHT = "prefferedheight";
-        public const string PREFFERED_WIDTH = "prefferedwidth";
-
-
         //parameters for horizontal and vertical layout
         public const string FORCE = "force";
         public const string FORCE_WIDTH = "forcewidth";
