@@ -25,7 +25,7 @@ namespace catwins.flexui
         {
             set
             {
-                SetProperty(ModText.TEXT, value);
+                SetProperty(ModText.TEXT, value, true);
             }
             get
             {

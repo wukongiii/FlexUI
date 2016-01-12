@@ -35,26 +35,7 @@ public class Scripting : MonoBehaviour {
 		string xmlString = XML.ToString ();
 		doc = new Document (Container, xmlString);
 
-		doc.AddEventListener ("onBtnClick", OnClickBtn);
-		doc.AddEventListener ("onClickToggle", OnClickToggle);
 	}
 
-	private void OnClickToggle(object element, object data)
-	{
-		TagToggle toggle = (TagToggle)element;
-		Debug.Log ("You clicked :" + toggle.ID);
-	}
 
-	private void OnClickBtn(object element, object data)
-	{
-		TagButton btn = (TagButton)element;
-		Debug.Log ("You just clicked me! My name is: " + btn.Name + ", text on me is:" + btn.Text);
-		var group = ModToggleGroup.GetGroupByGroupID (1);
-		var selectedToggles = group.GetSelectedToggles ();
-
-		for (int i = 0; i < selectedToggles.Count; i++) {
-			Debug.Log ("You selected:" + selectedToggles [i].ID);
-		}
-		btn.Text += "~";
-	}
 }

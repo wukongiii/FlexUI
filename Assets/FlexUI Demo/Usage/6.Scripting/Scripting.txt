@@ -1,28 +1,71 @@
 <root  background="sprite@res://border1" color="ffffff" width="800" height="600">
 
-	<div width="100%" height="30%">
-		<text text="FlexUI using C# to script. In the behind is C#LE(C# light engine.)
-		Project Detail: https://github.com/lightszero
+	<div width="100%" height="30%" align="uppercenter">
+		<text text="
+		FlexUI using C# to script. In the behind is C#LE(C# light engine.)
+		Project detail: github.com/lightszero
 		Thanks to the Author Jianying Li.
-		" size="30" color="black" width="100%" height="30%" textalign="middlecenter" hOverflow="true" vOverflow="true"/>
+		" size="20" color="black" width="100%" height="100%" textalign="middlecenter" hOverflow="true" vOverflow="true"/>
 
 	</div>
 
-	<script className="MyClass">
-		//script in a class, you can't have instructions outside a function.
+	<div width="100%" height="30%" align="middlecenter">
+		<text id="myText" text="" size="30" color="black" width="100%" height="100%" textalign="middlecenter" hOverflow="true" vOverflow="true"/>
+
+	</div>
+
+
+	<button uri="prefab@res://UI/Control/Button" text="click me" width="150" onClick="onBtnClick" id="btn" align="lowerCenter"/>
+
+    <script className="MyClassA">
+		//scripts in a class, you can't have instructions outside a function.
+
+		int clickedTimes = 1;
+
+		private Document document;
+
+		TagText myText;
+
 		//construction function
-		public void MyClass()
+		public void MyClassA(Document document)
 		{
-			Debug.Log("This is MyClass");
+			this.document = document;
+			Debug.Log("This is MyClass.");
+
+			myText = document.GetElementByID("myText");
+	 		document.AddEventListener("onBtnClick", OnBtnClick);
 		}
+
+		public void OnBtnClick(object element, object data)
+		{
+			Debug.Log("Click Button");
+			myText.Text = "You clicked Button " + clickedTimes + " times.";
+			clickedTimes++;
+		}
+	</script>
+
+	<script className="MyClassB">
+
+		private Document document;
+
+		//construction function
+		public void MyClassB(Document document)
+		{
+			this.document = document;
+		}
+
 	</script>
 
 
 	<script>
 		//scripts not in a class, can be executed, but you can not define function.
-	 	MyClass myClass = new MyClass();
+		//You can register outter variables in Document.RegValues();
+		//The script here can scene "document".
+		//And, before you using any Class defined out of the C#LE, you should register it in Document.RegTypes().
+	 	MyClassA myClassA = new MyClassA(document);
+
+	 	MyClassB myClassB = new MyClassB(document);
+
 
 	</script>
-
-    
 </root>
