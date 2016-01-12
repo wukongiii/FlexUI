@@ -25,13 +25,13 @@ instead. -->
 		<text text="Horizontal" size="30" color="black" width="100%" height="100" textalign="middlecenter" ignoreLayout="true"/>
 	</div>
 	<div width="50%" height="50%"  layout="grid" cellsize="50,50" align="lowerleft" background="sprite@res://border1">
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
-		<image uri="sprite@res://border2" />
+		<image uri="spriteInSheeT@res://icons/icons_0" />
+		<image uri="spriteInSheeT@res://icons/icons_1" />
+		<image uri="spriteInSheeT@res://icons/icons_2" />
+		<image uri="spriteInSheeT@res://icons/icons_3" />
+		<image uri="spriteInSheeT@res://icons/icons_4" />
+		<image uri="spriteInSheeT@res://icons/icons_5" />
+		<image uri="spriteInSheeT@res://icons/icons_6" />
 		<text text="Grid" size="30" color="black" width="100%" height="100" textalign="middlecenter" ignoreLayout="true"/>
 	</div>
 	<div width="50%" height="50%"  layout="horizontal" force="false" align="lowerright" background="sprite@res://border1">

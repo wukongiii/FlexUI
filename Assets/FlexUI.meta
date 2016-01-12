@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 22ec77853a7e640999faf7f94d0a2f1c
+labels:
+- com.catwins.flexui
 folderAsset: yes
 timeCreated: 1451097760
 licenseType: Pro
