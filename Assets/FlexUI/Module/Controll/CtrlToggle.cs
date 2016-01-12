@@ -46,6 +46,36 @@ namespace catwins.flexui
             }
 
         }
+
+		protected override void ProcessOnClick()
+		{
+			AddEventHandler_OnClick(toggleGO);
+		}
+
+		public TagToggle TagToggle
+		{
+			get 
+			{
+				return (TagToggle)element;
+			}
+
+		}
+
+		public string Text
+		{
+			set
+			{
+				element.SetProperty (TEXT, value, true);
+			}
+			get
+			{
+				if (element.HasProperty(TEXT))
+				{
+					return element.GetString(TEXT);
+				}
+				return null;
+			}
+		}
         
         
         public override void Update()

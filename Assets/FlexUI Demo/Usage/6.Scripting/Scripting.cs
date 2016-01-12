@@ -5,7 +5,7 @@ using System.Collections;
 
 using catwins.flexui;
 
-public class Event : MonoBehaviour {
+public class Scripting : MonoBehaviour {
 
 	public GameObject Container;
 	

@@ -26,6 +26,6 @@ namespace catwins.flexui
                 return GetMod<CtrlToggle>().Toggle.isOn;
             }
         }
-        
+
     }
 }

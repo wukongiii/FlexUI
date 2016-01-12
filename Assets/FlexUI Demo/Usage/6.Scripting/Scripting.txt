@@ -1,0 +1,28 @@
+<root  background="sprite@res://border1" color="ffffff" width="800" height="600">
+
+	<div width="100%" height="30%">
+		<text text="FlexUI using C# to script. In the behind is C#LE(C# light engine.)
+		Project Detail: https://github.com/lightszero
+		Thanks to the Author Jianying Li.
+		" size="30" color="black" width="100%" height="30%" textalign="middlecenter" hOverflow="true" vOverflow="true"/>
+
+	</div>
+
+	<script className="MyClass">
+		//script in a class, you can't have instructions outside a function.
+		//construction function
+		public void MyClass()
+		{
+			Debug.Log("This is MyClass");
+		}
+	</script>
+
+
+	<script>
+		//scripts not in a class, can be executed, but you can not define function.
+	 	MyClass myClass = new MyClass();
+
+	</script>
+
+    
+</root>

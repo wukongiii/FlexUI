@@ -1,28 +1,28 @@
 <root  background="sprite@res://border1" color="ffffff" width="800" height="600">
     <div width="100%" height="100%">
-        <div align="upperleft" width="100%" height="100" background="sprite@res://border1"> 
-        	<image uri="sprite@res://border2" width="100" height="100" align="middleleft"/>
-        	<text text="Demo tags" size="50" color="black" width="100%" height="100" textalign="middlecenter" />
-        </div>
         
-        <scroll width="100%" height="200" mask="true" showMask="false" background="" scrollContent="scrollContent"  scrollDirection="vertical">				
-			<div background="sprite@res://border2" width="100%" height="100%" type="sliced">
-				<text text="I'm the content that not scroll" size="40" color="black" width="100%" height="100%" textalign="lowercenter"/>
+		<div width="100%" height="50%" align="middleCenter" layout="vertical" force="false" togglegroupid="1" allowswitchoff="false" >
+			<div prefferedheight="50" flexibleWidth="100%" layout="horizontal" force="false">
+				<toggle id="toggle1" onClick="onClickToggle" uri="prefab@res://UI/Control/Toggle" isOn="false" prefferedWidth="50" prefferedHeight="50" align="middleLeft" groupID ="1" />
+				<text text="CheckBox1" size="30" color="black" prefferedHeight="50" flexibleWidth="80%" textalign="middleleft" align="middleRight"/>
 			</div>
-			<div id="scrollContent" height="400" width="100%" background="sprite@res://border3" type="sliced">					
-				<text text="Drag me!    You can customize your own tags as many as you want." size="40" color="black" width="100%" height="100%" textalign="middlecenter"/>
+			<div prefferedheight="50" flexibleWidth="100%" layout="horizontal" force="false">
+				<toggle id="toggle2" onClick="onClickToggle" uri="prefab@res://UI/Control/Toggle" isOn="false" prefferedWidth="50" prefferedHeight="50" align="middleLeft" groupID ="1" />
+				<text text="CheckBox2" size="30" color="black" prefferedHeight="50" flexibleWidth="80%" textalign="middleleft" align="middleRight"/>
 			</div>
-			
-		</scroll>
-		
-		<div width="100%" height="180" align="lowercenter">
-			<toggle uri = "prefab@res://UI/Control/Toggle" isOn="false" align="upperleft" width="50" height="50" />
-			<button uri="prefab@res://UI/Control/Button" text="click me" width="150" onClick="onBtnClick"/>
+			<div prefferedheight="50" flexibleWidth="100%" layout="horizontal" force="false">
+				<toggle id="toggle3" onClick="onClickToggle" uri="prefab@res://UI/Control/Toggle" isOn="false" prefferedWidth="50" prefferedHeight="50" align="middleLeft" groupID ="1" />
+				<text text="CheckBox3" size="30" color="black" prefferedHeight="50" flexibleWidth="80%" textalign="middleleft" align="middleRight"/>
+			</div>
+			<div prefferedheight="50" flexibleWidth="100%" layout="horizontal" force="false">
+				<toggle id="toggle4" onClick="onClickToggle" uri="prefab@res://UI/Control/Toggle" isOn="false" prefferedWidth="50" prefferedHeight="50" align="middleLeft" groupID ="1" />
+				<text text="CheckBox4" size="30" color="black" prefferedHeight="50" flexibleWidth="80%" textalign="middleleft" align="middleRight"/>
+			</div>
+
 		</div>
+			<button uri="prefab@res://UI/Control/Button" text="click me" width="150" onClick="onBtnClick" name="Button" align="lowerCenter"/>
     </div>
     
-    <script>
-   		Debug.Log("Hi! The script in the XML is running!");
-    </script>
+
     
 </root>

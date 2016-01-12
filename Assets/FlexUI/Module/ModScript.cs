@@ -8,29 +8,28 @@ namespace catwins.flexui
     public class ModScript:BaseMod
     {
         public const string SCRIPT = "script";
-        public const string TYPE = "type";
-        public const string TYPE_CLASS = "class";
-        public const string TYPE_INSTANT = "instant";
+
+		public const string META_CLASS_NAME = "classname";
 
         public override void Update()
         {
             if (element.HasDirtyProperty(Element.VALUE))
             {
                 string scriptStr = element.GetString(Element.VALUE, true);
-                if (element.HasDirtyProperty(TYPE))
-                {
-                    string codeType = element.GetString(TYPE);
-                    if (codeType == TYPE_CLASS)
-                    {
-                        element.document.ScriptEngine.BuildFile("test", scriptStr);
-                    } else if (codeType == TYPE_INSTANT)
-                    {
-                        element.document.ScriptEngine.Execute(scriptStr);
-                    }
-                } else 
-                {
-                    element.document.ScriptEngine.Execute(scriptStr);
-                }
+
+				if (element.HasDirtyProperty (META_CLASS_NAME)) {
+					string className = element.GetString (META_CLASS_NAME, true);
+
+					string classWrap = "public class {0} \n{ \n {1} \n}";
+					classWrap = classWrap.Replace ("{0}", className);
+					classWrap = classWrap.Replace ("{1}", scriptStr);
+					element.document.ScriptEngine.BuildFile (className, classWrap);
+				} 
+				else 
+				{
+					element.document.ScriptEngine.Execute(scriptStr);
+				}
+                
             }
             
         }

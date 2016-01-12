@@ -18,5 +18,21 @@ namespace catwins.flexui
             AddMod<CtrlButton>();
         }
 
+		public string Text
+		{
+			set
+			{
+				SetProperty(CtrlButton.TEXT, value, true);
+			}
+			get
+			{
+				if (HasProperty(CtrlButton.TEXT))
+				{
+					return GetString(CtrlButton.TEXT);
+				}
+				return null;
+			}
+		}
+
     }
 }

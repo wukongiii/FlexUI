@@ -14,8 +14,8 @@ namespace catwins.flexui
         public const string TOGGLE_GROUP_ID = "togglegroupid";
         public const string ALLOW_SWITCH_OFF = "allowswitchoff";
 
-
-        //-------
+		//I think Unity should leave ToggleGroup invisible, seperated Toggle and ToggleGroup make things weird.
+        //-------static------
         private static Dictionary<int, ModToggleGroup> groups = new Dictionary<int, ModToggleGroup>();
 
         public static ModToggleGroup GetGroupByGroupID(int groupID)
@@ -27,14 +27,14 @@ namespace catwins.flexui
             return null;
         }
 
-        private static Dictionary<int ,List<CtrlToggle>> togglesNeedGroup = new Dictionary<int, List<CtrlToggle>>();
+		private static Dictionary<int ,List<CtrlToggle>> groupedToggles = new Dictionary<int, List<CtrlToggle>>();
         public static void RegGroupedToggle(int groupID, CtrlToggle ctrlToggle)
         {
-            if (!togglesNeedGroup.ContainsKey(groupID))
+            if (!groupedToggles.ContainsKey(groupID))
             {
-                togglesNeedGroup[groupID] = new List<CtrlToggle>();
+                groupedToggles[groupID] = new List<CtrlToggle>();
             }
-            togglesNeedGroup [groupID].Add(ctrlToggle);
+            groupedToggles [groupID].Add(ctrlToggle);
         }
 
 
@@ -52,7 +52,8 @@ namespace catwins.flexui
         protected override void OnRemove()
         {
             groups = new Dictionary<int, ModToggleGroup>();
-            togglesNeedGroup = new Dictionary<int, List<CtrlToggle>>();
+            groupedToggles = new Dictionary<int, List<CtrlToggle>>();
+			//doing this save a lot of code.
         }
 
         private void InitGroup()
@@ -69,14 +70,13 @@ namespace catwins.flexui
                 groups[GroupID] = this;
             }
 
-            if (togglesNeedGroup.ContainsKey(GroupID))
+            if (groupedToggles.ContainsKey(GroupID))
             {
-                List<CtrlToggle> togglesInGroup = togglesNeedGroup[GroupID];
+                List<CtrlToggle> togglesInGroup = groupedToggles[GroupID];
                 for (int i = 0; i < togglesInGroup.Count; i++)
                 {
                     togglesInGroup[i].Toggle.group = ToggleGroup;
                 }
-                togglesNeedGroup.Remove(GroupID);
             }
         }
         public override void Update()
@@ -89,6 +89,25 @@ namespace catwins.flexui
             }
             
         }
+
+		public List<TagToggle> GetSelectedToggles()
+		{
+			if (!groupedToggles.ContainsKey (GroupID))
+			{
+				return null;
+			}
+
+			List<TagToggle> selectedToggles = new List<TagToggle> ();
+			var toggles = groupedToggles [GroupID];
+			for (int i = 0; i < toggles.Count; i++) 
+			{
+				if (toggles [i].Toggle.isOn) 
+				{
+					selectedToggles.Add (toggles [i].TagToggle);
+				}
+			}
+			return selectedToggles;
+		}
 
 
     }

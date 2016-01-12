@@ -47,7 +47,6 @@ namespace catwins.flexui
             }
             Handler handlers = eventHandlers [eventName];
             handlers = null;
-			eventHandlers.Remove (eventName);
         }
 
         public void DispatchEvent(string eventName, object sender = null, object data = null)
