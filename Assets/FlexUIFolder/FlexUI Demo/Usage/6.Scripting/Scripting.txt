@@ -60,7 +60,7 @@
 	<script>
 		//scripts not in a class, can be executed, but you can not define function.
 		//You can register outter variables in Document.RegValues();
-		//The script here can scene "document".
+		//The script here can sence "document".
 		//And, before you using any Class defined out of the C#LE, you should register it in Document.RegTypes().
 	 	MyClassA myClassA = new MyClassA(document);
 
